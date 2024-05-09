@@ -1,0 +1,113 @@
+{
+  "$schema": "https://www.raycast.com/schemas/extension.json",
+  "name": "tl-raycast",
+  "title": "Time Logger",
+  "description": "Manage the command line time-logger.",
+  "icon": "icon.png",
+  "author": "jptaranto",
+  "license": "MIT",
+  "keywords": [
+    "tl"
+  ],
+  "preferences": [
+    {
+      "name": "phpPath",
+      "title": "Path to php",
+      "description": "The php executable location (e.g /opt/homebrew/bin/php)",
+      "type": "textfield",
+      "required": true
+    },
+    {
+      "name": "tlPath",
+      "title": "Path to tl",
+      "description": "The tl.phar location (e.g /usr/local/bin/tl)",
+      "type": "textfield",
+      "required": true
+    }
+  ],
+  "commands": [
+    {
+      "name": "menu-bar-status",
+      "title": "Menu Bar Status",
+      "description": "Monitor tl status in the menu bar.",
+      "mode": "menu-bar"
+    },
+    {
+      "name": "start",
+      "title": "Start",
+      "description": "Starts a time entry.",
+      "mode": "no-view",
+      "arguments": [
+        {
+          "name": "issue",
+          "type": "text",
+          "placeholder": "Issue or alias",
+          "required": true
+        },
+        {
+          "name": "comment",
+          "type": "text",
+          "placeholder": "Comment",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "add",
+      "title": "Add",
+      "description": "Add a time entry.",
+      "mode": "view"
+    },
+    {
+      "name": "stop",
+      "title": "Stop",
+      "description": "Stops the active time entry.",
+      "mode": "no-view"
+    },
+    {
+      "name": "continue",
+      "title": "Continue",
+      "description": "Continuess the active time entry.",
+      "mode": "view"
+    },
+    {
+      "name": "send",
+      "title": "Send",
+      "description": "Sends time entries to back-end.",
+      "mode": "view"
+    },
+    {
+      "name": "delete",
+      "title": "Delete",
+      "description": "Deletes an entry.",
+      "mode": "view"
+    },
+    {
+      "name": "edit",
+      "title": "Edit",
+      "description": "Edits a time entry. Start time is modified to be duration-ago.",
+      "mode": "view"
+    }
+  ],
+  "dependencies": {
+    "20": "^3.1.9",
+    "@raycast/api": "^1.72.1",
+    "@raycast/utils": "^1.15.0"
+  },
+  "devDependencies": {
+    "@raycast/eslint-config": "^1.0.6",
+    "@types/node": "20.8.10",
+    "@types/react": "18.2.27",
+    "eslint": "^8.51.0",
+    "prettier": "^3.0.3",
+    "typescript": "^5.2.2"
+  },
+  "scripts": {
+    "build": "ray build -e dist",
+    "dev": "ray develop",
+    "fix-lint": "ray lint --fix",
+    "lint": "ray lint",
+    "format": "prettier --write \"**/*.{tsx,json}\"",
+    "publish": "npx @raycast/api@latest publish"
+  }
+}
